@@ -1,4 +1,4 @@
-baseURL: "https://startling-truffle-6032f2.netlify.app"
+baseURL: "/"
 languageCode: "en-us"
 title: "ArangoDB Documentation"
 theme: "hugo-theme-relearn"
