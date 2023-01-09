@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Build the stack
-        run: docker-compose up
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: test cat
+        run: echo "action test"
+      
