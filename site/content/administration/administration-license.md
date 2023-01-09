@@ -11,7 +11,8 @@ information about the current license via the JavaScript API is described below.
 There is also an [HTTP API](../http/license).
 Also check the [ArangoDB Kubernetes Operator](../deployment/kubernetes/deployment-kubernetes-usage)
 for more details on how to set a license key.
-
+test test
+test
 ## Initial Installation
 
 The first installation of any ArangoDB Enterprise Edition instance can be
