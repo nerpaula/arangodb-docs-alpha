@@ -30,6 +30,6 @@ COPY --from=hugo-clone /hugo ./hugo
 WORKDIR hugo
 RUN go install
 WORKDIR /site
-CMD [ "hugo", "serve", "--buildDrafts", "--watch", "--bind=0.0.0.0"]
+CMD [ "hugo"]
 
 # END HUGO
