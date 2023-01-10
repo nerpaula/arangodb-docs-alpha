@@ -14,7 +14,7 @@ from globals import *
 
 def structure_migration_new(label, document, manual):
 	if document is None:
-		directoryTree = open(f"{OLD_TOOLCHAIN}/_data/3.10-{manual}.yml", encoding="utf-8")
+		directoryTree = open(f"{OLD_TOOLCHAIN}/_data/{version}-{manual}.yml", encoding="utf-8")
 		document = yaml.full_load(directoryTree)
 
 		if manual != "manual":
@@ -50,8 +50,8 @@ def create_chapter(item, manual):
 	if manual != "manual":
 		label = f"{manual}/{label}"
 
-	filepath = f'{NEW_TOOLCHAIN}/content/{label}/_index.md'
-	Path(f'{NEW_TOOLCHAIN}/content/{label}').mkdir(parents=True, exist_ok=True)
+	filepath = f'{NEW_TOOLCHAIN}/content/{version}/{label}/_index.md'
+	Path(f'{NEW_TOOLCHAIN}/content/{version}/{label}').mkdir(parents=True, exist_ok=True)
 
 	labelPage = Page()
 	labelPage.frontMatter.title = item["subtitle"]
@@ -71,10 +71,10 @@ def create_index(label, item, extendedSection):
 	folderName = item["text"].lower().replace(" ", "-").replace("/", "")
 	label = label + "/" + folderName
 
-	Path(clean_line(f'{NEW_TOOLCHAIN}/content/{label}')).mkdir(parents=True, exist_ok=True)
+	Path(clean_line(f'{NEW_TOOLCHAIN}/content/{version}/{label}')).mkdir(parents=True, exist_ok=True)
 
-	indexPath = clean_line(f'{NEW_TOOLCHAIN}/content/{label}/_index.md')
-	oldFilePath = f'{OLD_TOOLCHAIN}/3.10/{extendedSection}{oldFileName}'
+	indexPath = clean_line(f'{NEW_TOOLCHAIN}/content/{version}/{label}/_index.md')
+	oldFilePath = f'{OLD_TOOLCHAIN}/{version}/{extendedSection}{oldFileName}'
 	shutil.copyfile(oldFilePath, indexPath)
 	infos[indexPath] = {
 		"title": f'\'{item["text"]}\'' if '@' in item["text"] else item["text"],
@@ -85,11 +85,11 @@ def create_index(label, item, extendedSection):
 
 def create_files_new(label, item, extendedSection):
 	oldFileName = item["href"].replace(".html", ".md")
-	oldFilePath = f'{OLD_TOOLCHAIN}/3.10/{extendedSection}{oldFileName}'.replace("//", "/")
+	oldFilePath = f'{OLD_TOOLCHAIN}/{version}/{extendedSection}{oldFileName}'.replace("//", "/")
 	if label == '':
 		return create_file_no_label(item, extendedSection)
 
-	filePath = clean_line(f'{NEW_TOOLCHAIN}/content/{label}/{oldFileName}')
+	filePath = clean_line(f'{NEW_TOOLCHAIN}/content/{version}/{label}/{oldFileName}')
 
 	try:
 		shutil.copyfile(oldFilePath, filePath)
@@ -106,12 +106,12 @@ def create_files_new(label, item, extendedSection):
 # To handle analyzers.md etc. case that are root-level pages
 def create_file_no_label(item, extendedSection):
 	oldFileName = item["href"].replace(".html", ".md")
-	oldFilePath = f'{OLD_TOOLCHAIN}/3.10/{extendedSection}{oldFileName}'.replace("//", "/")
+	oldFilePath = f'{OLD_TOOLCHAIN}/{version}/{extendedSection}{oldFileName}'.replace("//", "/")
 
 	label = oldFileName.replace(".md", "")
-	Path(clean_line(f'{NEW_TOOLCHAIN}/content/{label}')).mkdir(parents=True, exist_ok=True)
+	Path(clean_line(f'{NEW_TOOLCHAIN}/content/{version}/{label}')).mkdir(parents=True, exist_ok=True)
 
-	filePath = clean_line(f'{NEW_TOOLCHAIN}/content/{label}/_index.md')
+	filePath = clean_line(f'{NEW_TOOLCHAIN}/content/{version}/{label}/_index.md')
 
 	try:
 		shutil.copyfile(oldFilePath, filePath)
@@ -131,7 +131,7 @@ def create_file_no_label(item, extendedSection):
 def processFiles():
 	print(f"----- STARTING CONTENT MIGRATION")
 	#print(menu)
-	for root, dirs, files in os.walk(f"{NEW_TOOLCHAIN}/content", topdown=True):
+	for root, dirs, files in os.walk(f"{NEW_TOOLCHAIN}/content/{version}", topdown=True):
 		for file in files:
 			processFile(f"{root}/{file}".replace("\\", "/"))
 	print("------ CONTENT MIGRATION END")
@@ -195,7 +195,7 @@ def _processChapters(page, paragraph, filepath):
 	paragraph = re.sub(r"(?<=\n\n)[\w\s\W]+{:class=\"lead\"}", '', paragraph)
 	versionBlocks = re.findall(r"{%- assign ver.*{%- endif %}", paragraph)
 	for versionBlock in versionBlocks:
-		if not "3.10" in versionBlock:
+		if not "{version}" in versionBlock:
 			paragraph = paragraph.replace(versionBlock, "")
 
 	paragraph = migrate_headers(paragraph)
@@ -220,11 +220,11 @@ def _processChapters(page, paragraph, filepath):
 def migrate_media():
 	print("----- MIGRATING MEDIA")
 	Path(f"{NEW_TOOLCHAIN}/assets/images/").mkdir(parents=True, exist_ok=True)
-	for root, dirs, files in os.walk(f"{OLD_TOOLCHAIN}/3.10/images", topdown=True):
+	for root, dirs, files in os.walk(f"{OLD_TOOLCHAIN}/{version}/images", topdown=True):
 		for file in files:
 			shutil.copyfile(f"{root}/{file}", f"{NEW_TOOLCHAIN}/assets/images/{file}")
 
-	for root, dirs, files in os.walk(f"{OLD_TOOLCHAIN}/3.10/arangograph/images", topdown=True):
+	for root, dirs, files in os.walk(f"{OLD_TOOLCHAIN}/{version}/arangograph/images", topdown=True):
 		for file in files:
 			shutil.copyfile(f"{root}/{file}", f"{NEW_TOOLCHAIN}/assets/images/{file}")
 	print("----- END MEDIA MIGRATION")

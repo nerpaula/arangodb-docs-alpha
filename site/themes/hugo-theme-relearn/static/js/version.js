@@ -2,6 +2,10 @@ getCurrentVersion();
 renderVersion();
 
 function changeVersion() {
+  var uriFull = window.localStorage.getItem(baseUriFull+"tab-selections");
+  console.log(uriFull);
+  window.localStorage.setItem( baseUriFull+'variant', variant );
+
   var version = localStorage.getItem('docs-version');
   var versionSelector = document.getElementById("arangodb-version");
   version  = versionSelector.options[versionSelector.selectedIndex].value;

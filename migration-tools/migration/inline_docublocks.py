@@ -17,7 +17,7 @@ def migrateInlineDocuBlocks(paragraph):
                             "name": "",
                             "description": "",
                             "render": "input",
-                            "version": "3.10",
+                            "version": globals.version,
                             },
                         "code": "",
                         }
@@ -68,7 +68,6 @@ def migrateInlineDocuBlocks(paragraph):
 def render_codeblock(block):
     exampleOptions = yaml.dump(block["options"], sort_keys=False, default_flow_style=False)
     res = f'\n\
-{{{{< version "3.10" >}}}}\n\
 {{{{< tabs >}}}}\n\
 {{{{% tab name="{block["language"]}" %}}}}\n\
 ```{block["language"]}\n\
@@ -79,6 +78,5 @@ def render_codeblock(block):
 ```\n\
 {{{{% /tab %}}}}\n\
 {{{{< /tabs >}}}}\n\
-{{{{< /version >}}}}\n\
 '
     return re.sub(r"^\s*$\n", '', res, 0, re.MULTILINE | re.DOTALL)

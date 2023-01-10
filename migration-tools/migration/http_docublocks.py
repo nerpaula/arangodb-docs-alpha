@@ -175,7 +175,7 @@ def processExamples(docuBlock):
         exampleName = re.search(r"(?<={).*(?=})", block).group(0)
         exampleBlock["options"]["name"] = exampleName
         exampleBlock["options"]["release"] = "stable"
-        exampleBlock["options"]["version"] = "3.10"
+        exampleBlock["options"]["version"] = globals.version
         code = re.search(r"(?<="+exampleType+"{"+exampleName+"}\n).*", block, re.MULTILINE | re.DOTALL).group(0)
         code = code.replace("|", " ")
         exampleBlock["code"] = code
@@ -379,7 +379,6 @@ def parse_examples(blockExamples):
     for example in blockExamples:
         exampleOptions = yaml.dump(example["options"], sort_keys=False, default_flow_style=False)
         codeBlock = f'\n\
-{{{{< version "3.10" >}}}}\n\
 {{{{< tabs >}}}}\n\
 {{{{% tab name="curl" %}}}}\n\
 ```curl\n\
@@ -390,7 +389,6 @@ def parse_examples(blockExamples):
 ```\n\
 {{{{% /tab %}}}}\n\
 {{{{< /tabs >}}}}\n\
-{{{{< /version >}}}}\n\
 '
         res = res + "\n" + codeBlock
     return re.sub(r"^\s*$\n", '', res, 0, re.MULTILINE | re.DOTALL)

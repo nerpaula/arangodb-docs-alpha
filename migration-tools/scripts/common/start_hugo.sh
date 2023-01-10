@@ -21,7 +21,7 @@ check $val
 cd /site
 hugoOptions=""
 if [ "$HUGO_ENV" = "development" ]; then
-   hugoOptions="server"
+   hugoOptions="serve --buildDrafts --watch --bind=0.0.0.0"
 fi
 
 hugo $hugoOptions -e $HUGO_ENV
