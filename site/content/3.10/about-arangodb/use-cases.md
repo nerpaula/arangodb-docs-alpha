@@ -150,7 +150,7 @@ full-text, GeoJSON, as well as arbitrary JSON data. It supports various
 kinds of search patterns (tokens, phrases, wildcard, fuzzy, geo-spatial, etc.)
 and it can rank results by relevance and similarity using popular
 scoring algorithms.
-
+testtest
 It also features natural language processing (NLP) capabilities.
 {{% comment %}} Experimental feature
 and can classify or find similar terms using word embedding models.
