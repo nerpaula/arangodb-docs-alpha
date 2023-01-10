@@ -19,8 +19,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm install netlify-cli --save-dev
-      - run: netlify deploy --dir=site/public
+        run: npm install netlify-cli --save-dev
+        run: netlify deploy --dir=site/public
         ## commit cache
         ## get the public/ dir and upload to netlify preview
 
