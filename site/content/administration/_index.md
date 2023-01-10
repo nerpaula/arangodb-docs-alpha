@@ -14,7 +14,7 @@ tedtestsest
   [_arangod_](../programs-tools/arangodb-server/) serves a graphical web interface to
   be accessed with a browser via the server port. It provides basic and advanced
   functionality to interact with the server and its data.
-  
+  test test
   {{% comment %}}TODO: In case of a cluster, the web interface can be reached via any of the Coordinators. What about other deployment modes?{{% /comment %}}
 
 - **ArangoShell**: [_arangosh_](../programs-tools/arangodb-shell/) is a V8 shell to
