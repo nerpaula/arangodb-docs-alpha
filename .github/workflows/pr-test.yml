@@ -1,6 +1,8 @@
 
-name: examples-generation-test
+name: 'examples-generation-test'
+
 on:
+  workflow_dispatch:
   pull_request:
     types: [ labeled ]
 
@@ -13,5 +15,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: build docker with examples test
-        run: docker-compose up --build 
+        run: docker compose up --exit-code-from site
+        ## commit cache
+        ## get the public/ dir and upload to netlify preview
+
+        
+
       

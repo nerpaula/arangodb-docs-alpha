@@ -64,7 +64,7 @@ services:
       - ./site:/site
       - ./migration-tools/scripts/common:/home
     environment:
-      - HUGO_ENV=examples
+      - HUGO_ENV=development
 
     
   
