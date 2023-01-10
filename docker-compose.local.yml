@@ -46,8 +46,6 @@ services:
   arangoproxy:
     container_name: arangoproxy
     image: arangoproxy
-    depends_on:
-      - "arango_single"
     build:
       context: .
       target: arangoproxy
