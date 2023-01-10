@@ -19,22 +19,11 @@ jobs:
         run: docker compose up --exit-code-from site
 
       - name: Deploy to Netlify
-        id: deploy-netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        uses: actions/setup-node@v3
         with:
-          args: deploy --dir=site/public
-
-      - name: Netlify Preview URL
-        uses: unsplash/comment-on-pr@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OUTPUT: "This pull request is being automatically deployed to Netlify.\n\n🔍 Inspect: ${{ steps.deploy-netlify.outputs.NETLIFY_LOGS_URL }}\n✅ Preview: ${{ steps.deploy-netlify.outputs.NETLIFY_URL }}"
-        with:
-          msg: ${{ env.OUTPUT }}
-          check_for_duplicate_msg: false
+          node-version: 16
+      - run: npm install netlify-cli --save-dev
+      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public
         ## commit cache
         ## get the public/ dir and upload to netlify preview
 
