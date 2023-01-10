@@ -11,9 +11,12 @@ While AQL string functions allow for basic text manipulation, true text
 processing including tokenization, language-specific word stemming, case
 conversion and removal of diacritical marks (accents) from characters only
 become possible with Analyzers.
+test test
+test 
+test
 
 Analyzers parse input values and transform them into sets of sub-values,
-for example by breaking up text into words. If they are used in Views then
+for example by breaking up text into words.s If they are used in Views then
 the documents' attribute values of the linked collections are used as input
 and additional metadata is produced internally. The data can then be used for
 searching and sorting to provide the most appropriate match for the specified
