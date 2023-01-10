@@ -23,7 +23,7 @@ Analyzers can be used on their own to tokenize and normalize strings in AQL
 queries with the [`TOKENS()` function](../aql/functions/functions-string#tokens).
 The following example shows the creation of a custom Analyzer and how it
 transforms an example input:
-
+test test
 
  {{< version "3.10" >}}
 {{< tabs >}}
