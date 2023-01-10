@@ -65,7 +65,6 @@ services:
     image: site
     depends_on:
       - "arangoproxy"
-      - "arango_single"
     build:
       context: .
       target: hugo
