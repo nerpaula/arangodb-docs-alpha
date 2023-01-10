@@ -169,5 +169,6 @@ queries using data that you computed.
 ArangoDB integrates well into existing data infrastructures and provides
 connectors for popular machine learning frameworks and data processing
 ecosystems.
+test
 
 ![Machine Learning Architecture of ArangoDB](/images/machine-learning-architecture.png)
