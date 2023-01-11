@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: build docker with examples test
-        run: docker compose up --exit-code-from site
+        run: cd site && hugo -e prod
 
       - name: Deploy to Netlify
         uses: actions/setup-node@v3
