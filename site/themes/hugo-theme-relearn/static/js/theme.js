@@ -717,6 +717,7 @@ function getUrlParameter(sPageURL) {
 })(jQuery, 'smartresize');
 
 jQuery(function() {
+    renderVersion();
     initArrowNav();
     initMermaid();
     initSwagger();
@@ -957,5 +958,22 @@ function copyURI(evt) {
       console.log("clipboard copy failed")
     });
 }
+
+function renderVersion() {
+    var menuEntries = document.getElementsByTagName('li');
+    console.log(menuEntries);
+    //.getElementsByTagName('li');
+  
+    for(let item of menuEntries) {
+      const dataNavId = item.getAttribute("data-nav-id");
+      var version = localStorage.getItem('docs-version');
+
+      console.log("version " + version);
+      console.log("Element " + dataNavId);
+        if (!dataNavId.startsWith("/" + version)) {
+            item.style.display = "none";
+        }
+      }
+};
 
 

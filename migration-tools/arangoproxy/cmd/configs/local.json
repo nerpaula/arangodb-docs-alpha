@@ -10,13 +10,13 @@
         {
             "type": "stable",
             "version": "3.10",
-            "url": "http+tcp://192.168.129.5:8521",
+            "url": "http+tcp://192.168.129.2:8521",
             "password": ""
         },
         {
             "type": "stable",
             "version": "3.11",
-            "url": "http+tcp://192.168.129.2:8531",
+            "url": "http+tcp://192.168.129.5:8531",
             "password": ""
         },
         {

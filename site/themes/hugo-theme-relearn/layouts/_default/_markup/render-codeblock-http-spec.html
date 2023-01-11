@@ -1,21 +1,3 @@
-{{ if site.Params.useCodeblockHook }}
-  {{ if site.Params.buildForApiDocs }}
-    {{ $request := printf "%s\n%s" .Position .Inner}}
-    {{ $endpoint := printf "%s/api-docs" site.Params.arangoproxyUrl }}
-    {{ $remote := resources.GetRemote $endpoint (dict
-    "method" "post"
-    "body" $request 
-    "headers" (dict 
-        "Content-Type" "application/json"
-        "User-Agent" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36"
-        "Timeout" "10000000"
-    )
-    )
-    }}
-    {{ if $remote.Err }}
-        {{ warnf "[API-DOCS] ERROR CALLING ENDPOINT %#v" .Position }}
-      {{ end }}
-  {{ else }}
     {{ $request := printf "%s\n%s" .Position .Inner}}
     {{ $endpoint := printf "%s/http-spec" site.Params.arangoproxyUrl }}
     {{ $remote := resources.GetRemote $endpoint (dict
@@ -79,5 +61,3 @@
         </script>
         {{ end }}
       {{ end }}
-    {{ end }}
-{{ end }}

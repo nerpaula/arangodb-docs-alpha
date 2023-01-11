@@ -1,0 +1,32 @@
+
+name: 'deploy-prod'
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - branch-deploy-test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: build docker with examples test
+        run: docker compose up --exit-code-from site
+
+      - name: Deploy to Netlify
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install netlify-cli --save-dev
+      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public --prod
+        ## commit cache
+        ## get the public/ dir and upload to netlify preview
+
+        
+
+      

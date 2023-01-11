@@ -12,3 +12,6 @@ migration-tools/scripts/*/*.tar.gz
 migration-tools/arangodb*/
 site/resources
 .vagrant/
+
+# Local Netlify folder
+.netlify
