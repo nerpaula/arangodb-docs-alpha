@@ -11,6 +11,8 @@ layout: default
 
 ### Community Edition
 
+test test
+
 ArangoDB is freely available in a **Community Edition** under the Apache 2.0
 open-source license. It is a fully-featured version without time or size
 restrictions and includes cluster support.
