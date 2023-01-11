@@ -4,34 +4,14 @@ name: 'deploy-prod'
 on:
   workflow_dispatch:
     inputs:
-        generate-examples:
+        examples:
           type: boolean
           description: Choose if generate examples
           required: true
 
 jobs:
-  build-with-examples:
-    if: "${{ github.event.inputs.generate-examples }} == 'true' "
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: build docker with examples test
-        run: docker compose up --exit-code-from site
-
-      - name: Deploy to Netlify
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm install netlify-cli --save-dev
-      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public --prod
-        ## commit cache
-        ## get the public/ dir and upload to netlify preview
-
   build-no-examples:
-    if: "${{ github.event.inputs.generate-examples }} == 'false' "
+    if: "${{ github.event.inputs.examples }} == 'false' "
     runs-on: ubuntu-latest
 
     steps:
