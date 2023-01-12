@@ -24,12 +24,13 @@ jobs:
       - name: Build
         run: cd site && hugo -b https://deploy-preview-${{ github.event.number }}--startling-truffle-6032f2.netlify.app
 
-      - name: Deploy to Netlify
-        uses: actions/setup-node@v3
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
         with:
-          node-version: 16
-      - run: npm install netlify-cli --save-dev
-      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public --alias deploy-preview-${{ github.event.number }}--
+          args: deploy --dir=site/public --alias deploy-preview-${{ github.event.number }}--
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         ## commit cache
         ## get the public/ dir and upload to netlify preview
 
