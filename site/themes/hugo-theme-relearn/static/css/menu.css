@@ -90,7 +90,11 @@
     margin: 0 1rem;
 }
 
-#sidebar ul.topics ul {
+#sidebar ul.topics > ul {
+    display: block;
+}
+
+#sidebar ul.topics > ul > ul {
     display: none;
 }
 
