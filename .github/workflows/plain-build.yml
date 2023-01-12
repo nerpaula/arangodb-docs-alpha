@@ -22,7 +22,7 @@ jobs:
       # Step 4 - Builds the site using the latest version of Hugo
       # Also specifies the theme we want to use
       - name: Build
-        run: cd site && hugo
+        run: cd site && hugo -b ${{ github.event.number }}
 
       - name: Deploy to Netlify
         uses: actions/setup-node@v3
