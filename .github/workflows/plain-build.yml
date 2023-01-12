@@ -22,14 +22,14 @@ jobs:
       # Step 4 - Builds the site using the latest version of Hugo
       # Also specifies the theme we want to use
       - name: Build
-        run: cd site && hugo -b ${{ github.event.number }}
+        run: cd site && hugo -b https://deploy-preview-${{ github.event.number }}--startling-truffle-6032f2.netlify.app
 
       - name: Deploy to Netlify
         uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm install netlify-cli --save-dev
-      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public
+      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public --alias deploy-preview-${{ github.event.number }}--
         ## commit cache
         ## get the public/ dir and upload to netlify preview
 
