@@ -32,6 +32,7 @@ type Example struct {
 	Options    ExampleOptions    `json:"options"` // The codeblock yaml part
 	Code       string            `json:"code"`
 	Repository config.Repository `json:"-"`
+	Raw        string            `json:"-"`
 }
 
 // The yaml part in the codeblock
@@ -70,7 +71,7 @@ func ParseExample(request io.Reader, exampleType ExampleType) (Example, error) {
 
 	code := strings.Replace(string(req), string(options), "", -1)
 
-	return Example{Type: exampleType, Options: optionsYaml, Code: code}, nil
+	return Example{Type: exampleType, Options: optionsYaml, Code: code, Raw: fmt.Sprintf("%s", string(req))}, nil
 }
 
 func (r Example) String() string {

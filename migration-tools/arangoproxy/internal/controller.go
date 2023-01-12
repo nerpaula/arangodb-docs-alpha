@@ -51,6 +51,7 @@ func JSHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("[js/CONTROLLER] Error marshalling response: %s\n", err.Error())
 		return
 	}
+	common.Logger.Printf("[js/CONTROLLER] END Example %s\n", request.Options.Name)
 
 	w.Write(response)
 }
@@ -63,7 +64,7 @@ func HTTPExampleHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//common.Logger.Printf("[http-example/CONTROLLER] Processing Example %s\n", request.Options.Name)
+	common.Logger.Printf("[http-example/CONTROLLER] Processing Example %s\n", request.Options.Name)
 
 	resp, err := HTTPService.ExecuteHTTPExample(request)
 	if err != nil {
@@ -74,6 +75,9 @@ func HTTPExampleHandler(w http.ResponseWriter, r *http.Request) {
 		common.Logger.Printf("[http-example/CONTROLLER] Error marshalling response: %s\n", err.Error())
 		return
 	}
+
+	common.Logger.Printf("[http-example/CONTROLLER] END Example %s\n", request.Options.Name)
+
 	w.Write(response)
 }
 
@@ -106,7 +110,7 @@ func AQLHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	//common.Logger.Printf("[aql/CONTROLLER] Processing Example %s\n", request.Options.Name)
+	common.Logger.Printf("[aql/CONTROLLER] Processing Example %s\n", request.Options.Name)
 
 	resp := AQLService.Execute(request)
 	response, err := json.Marshal(resp)
@@ -114,6 +118,8 @@ func AQLHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("[aql/CONTROLLER] Error marshalling response: %s\n", err.Error())
 		return
 	}
+	common.Logger.Printf("[aql/CONTROLLER] END Example %s\n", request.Options.Name)
+
 	w.Write(response)
 }
 

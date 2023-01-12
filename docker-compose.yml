@@ -57,6 +57,8 @@ services:
     volumes:
       - ./migration-tools:/home
       - ./site/data:/etc/arangoproxy
+    environments:
+      - ARANGOPROXY_ARGS
 
   site:
     container_name: site
@@ -75,7 +77,7 @@ services:
       - ./site:/site
       - ./migration-tools/scripts/common:/home
     environment:
-      - HUGO_ENV=examples
+      - HUGO_ENV
 
     
   
