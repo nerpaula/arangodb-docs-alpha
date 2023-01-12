@@ -967,9 +967,8 @@ function renderVersion() {
     for(let item of menuEntries) {
       const dataNavId = item.getAttribute("data-nav-id");
       var version = localStorage.getItem('docs-version');
-
-      console.log("version " + version);
-      console.log("Element " + dataNavId);
+      if (dataNavId == undefined) continue;
+      
         if (!dataNavId.startsWith("/" + version)) {
             item.style.display = "none";
         }

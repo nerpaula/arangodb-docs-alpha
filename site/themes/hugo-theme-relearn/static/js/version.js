@@ -1,12 +1,15 @@
 getCurrentVersion();
 
 function changeVersion() {
-  var version = localStorage.getItem('docs-version');
+  var oldVersion = localStorage.getItem('docs-version');
   var versionSelector = document.getElementById("arangodb-version");
-  version  = versionSelector.options[versionSelector.selectedIndex].value;
-  localStorage.setItem('docs-version', version);
+  var newVersion  = versionSelector.options[versionSelector.selectedIndex].value;
+  localStorage.setItem('docs-version', newVersion);
   versionSelector.options[versionSelector.options.selectedIndex].selected = true;
-  location.reload();
+
+  var oldUrl = window.location.href;
+  var newUrl = oldUrl.replace(oldVersion, newVersion)
+  location.href = newUrl;
 }
 
 function getCurrentVersion() {
