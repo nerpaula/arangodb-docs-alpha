@@ -28,12 +28,13 @@ jobs:
           commit_author: Author <actions@github.com> # defaults to author of the commit that triggered the run
           add_options: '-u'
 
-      - name: Deploy to Netlify
-        uses: actions/setup-node@v3
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
         with:
-          node-version: 16
-      - run: npm install netlify-cli --save-dev
-      - run: netlify deploy --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} --site ${{ secrets.NETLIFY_SITE_ID }} --dir site/public
+          args: deploy --dir=site/public --alias deploy-preview-${{ github.event.number }}--
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
         
 
