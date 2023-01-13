@@ -68,6 +68,7 @@ services:
       - ./migration-tools/scripts/common:/home
     environment:
       - HUGO_ENV
+      - HUGO_URL
 
     
   

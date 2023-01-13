@@ -24,4 +24,9 @@ if [ "$HUGO_ENV" = "development" ]; then
    hugoOptions="serve --buildDrafts --watch --bind=0.0.0.0"
 fi
 
-hugo $hugoOptions -e $HUGO_ENV
+echo "Hugo Settings:"
+echo "   BaseURL:     $HUGO_URL"
+echo "   Environment: $HUGO_ENV"
+echo "   Options:     $hugoOptions"
+
+hugo $hugoOptions -e $HUGO_ENV -b $HUGO_URL
