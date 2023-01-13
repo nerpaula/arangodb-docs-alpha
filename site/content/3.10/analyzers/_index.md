@@ -12,6 +12,8 @@ processing including tokenization, language-specific word stemming, case
 conversion and removal of diacritical marks (accents) from characters only
 become possible with Analyzers.
 
+test test test
+
 Analyzers parse input values and transform them into sets of sub-values,
 for example by breaking up text into words. If they are used in Views then
 the documents' attribute values of the linked collections are used as input
