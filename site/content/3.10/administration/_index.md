@@ -7,6 +7,8 @@ layout: default
 ---
 ## Tools
 
+test test
+
 Deployments of ArangoDB servers can be managed with the following tools:
 
 - [**Web interface**](../programs-tools/web-interface/):
