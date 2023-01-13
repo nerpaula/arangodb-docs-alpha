@@ -24,7 +24,7 @@ function check() {
    fi
 }
 
-declare -a arangoUrls=("192.168.129.5:8521" "192.168.129.2:8531"   )
+declare -a arangoUrls=("192.168.129.5:8529" "192.168.129.6:8529"   )
 echo "Waiting for all arango instances to be ready"
 for val in ${arangoUrls[@]}; do
      printf -v val "http://%s/_api/version" $val
