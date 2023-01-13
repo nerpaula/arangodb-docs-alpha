@@ -5,7 +5,7 @@
     "openapi": {
         "componentsFile": "./openapi/components.yaml"
     },
-    "cache": "/home/site/data/cache.json",
+    "cache": "/etc/arangoproxy/cache.json",
     "repositories": [
         {
             "type": "stable",

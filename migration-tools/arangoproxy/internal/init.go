@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -22,6 +23,9 @@ func InitLog(logFilepath string) {
 
 func CleanCache() {
 	os.OpenFile(config.Conf.Cache, os.O_TRUNC, 0644)
+	emptyFile := make(map[string]string)
+	emptyFileBrackets, _ := json.Marshal(emptyFile)
+	os.WriteFile(config.Conf.Cache, emptyFileBrackets, 0644)
 	for _, repository := range config.Conf.Repositories {
 		arangosh.Exec(utils.REMOVE_ALL_COLLECTIONS, repository) // FIXME
 		cmd, _ := utils.GetSetupFunctions()
