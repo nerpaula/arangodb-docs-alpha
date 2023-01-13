@@ -32,7 +32,7 @@
       {{ end}}
     {{ end }}
   {{ else }}
-    {{ warnf "CACHE NOT FOUND" }}
+    {{ warnf "CACHE NOT FOUND '%v'" $cacheEntry }}
     {{ if site.Params.useArangoproxy }}
       {{ $endpoint := printf "%s/aql" site.Params.arangoproxyUrl }}
       {{ $remote := resources.GetRemote $endpoint (dict

@@ -48,6 +48,7 @@ func init() {
 	}
 
 	common.Logger.Print("Setup Done\n---------\n")
+
 }
 
 func main() {

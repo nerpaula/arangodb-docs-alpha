@@ -8,10 +8,11 @@ on:
           type: boolean
           description: Choose if generate examples
           required: true
+          default: false
 
 jobs:
   build-no-examples:
-    if: "${{ github.event.inputs.examples }} == 'false' "
+    if: "${{ fromJSON(github.event.inputs.examples) == false }}"
     runs-on: ubuntu-latest
 
     steps:

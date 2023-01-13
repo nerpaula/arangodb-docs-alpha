@@ -12,6 +12,7 @@ if [ ! -f /home/arangodb3.11/bin/arangosh ]; then
     mv arangodb3-client-linux-3.11.0-nightly_x86_64 /home/arangodb3.11
 fi
 
+
 function check() {
    res=$(curl -s -I $val | grep HTTP/ | awk {'print $2'})
    if [ "$res" = "200" ]; then
@@ -23,11 +24,11 @@ function check() {
    fi
 }
 
-declare -a arangoUrls=("192.168.129.5:8531" "192.168.129.2:8521"   )
+declare -a arangoUrls=("192.168.129.5:8529" "192.168.129.6:8529"   )
 echo "Waiting for all arango instances to be ready"
 for val in ${arangoUrls[@]}; do
      printf -v val "http://%s/_api/version" $val
    check $val
 done
 
-cd /home/arangoproxy/cmd && go run main.go
+cd /home/arangoproxy/cmd && go run main.go $ARANGOPROXY_ARGS
