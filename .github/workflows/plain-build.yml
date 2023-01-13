@@ -22,7 +22,7 @@ jobs:
       # Step 4 - Builds the site using the latest version of Hugo
       # Also specifies the theme we want to use
       - name: Build
-        run: cd site && hugo -b https://deploy-preview-${{ github.event.number }}--startling-truffle-6032f2.netlify.app
+        run: cd site && hugo -b https://deploy-preview-${{ github.event.number }}--startling-truffle-6032f2.netlify.app --minify -e prod
 
       - name: Deploy to netlify
         uses: netlify/actions/cli@master

@@ -29,4 +29,4 @@ echo "   BaseURL:     $HUGO_URL"
 echo "   Environment: $HUGO_ENV"
 echo "   Options:     $hugoOptions"
 
-hugo $hugoOptions -e $HUGO_ENV -b $HUGO_URL
+hugo $hugoOptions -e $HUGO_ENV -b $HUGO_URL --minify
