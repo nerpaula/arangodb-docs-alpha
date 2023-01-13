@@ -25,8 +25,6 @@ func (service HTTPService) ExecuteHTTPExample(request common.Example) (res commo
 		return
 	}
 
-	common.Logger.Printf("%s\n%s\n", curlRequest, curlOutput)
-
 	res = *common.NewExampleResponse(curlRequest, curlOutput, request.Options)
 
 	if cmdOutput != "" {
