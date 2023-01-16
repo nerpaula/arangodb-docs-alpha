@@ -16,6 +16,8 @@ Deployments of ArangoDB servers can be managed with the following tools:
   
   {{% comment %}}TODO: In case of a cluster, the web interface can be reached via any of the Coordinators. What about other deployment modes?{{% /comment %}}
 
+  test test
+
 - **ArangoShell**: [_arangosh_](../programs-tools/arangodb-shell/) is a V8 shell to
   interact with any local or remote ArangoDB server through a JavaScript
   interface. It can be used to automate tasks. Some developers may prefer it over
