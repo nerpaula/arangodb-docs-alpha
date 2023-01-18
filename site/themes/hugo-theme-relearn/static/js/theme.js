@@ -938,6 +938,7 @@ $("input.toggle").click(function(event) {
     var x = $(event.target).next().next().next().slideToggle();
 });
 
+
 function copyURI(evt) {
     navigator.clipboard.writeText(evt.target.closest("a").getAttribute('href')).then(() => {
     }, () => {
@@ -971,6 +972,7 @@ var generateToc = function() {
     var headlineLevels = ["h2", "h3", "h4", "h5", "h6"]
     var nodes = contentBlock.querySelectorAll(headlineLevels.slice(0, maxHeadlineLevel).join(","));
     if (nodes.length < 3) {
+        document.querySelector('.toc-container').style.display = none;
       return;
     }
   

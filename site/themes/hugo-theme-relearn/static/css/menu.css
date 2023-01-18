@@ -115,6 +115,10 @@
     font-size: 13px;
 }
 
+#sidebar ul.topics li.active > ul {
+    border-left: 1px solid;
+}
+
 #sidenav ul.topics input.toggle,
 #sidenav ul.topics label {
     display: none;
