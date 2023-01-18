@@ -704,7 +704,6 @@ function getUrlParameter(sPageURL) {
 
 jQuery(function() {
     renderVersion();
-    generateToc();
     initArrowNav();
     initMermaid();
     initSwagger();
@@ -719,6 +718,7 @@ jQuery(function() {
     initSwipeHandler();
     initHistory();
     initSearch();
+    generateToc();
     showPrint
     videosAutoplayer();
 });
@@ -850,7 +850,7 @@ function observeVideo(video) {
 
 // Table of contents h2 highlighter
 
-const anchors = $('body').find('h2');
+const anchors = $('body').find('h2,h3');
 
 $(window).scroll(function(){
     var scrollTop = $(document).scrollTop();
