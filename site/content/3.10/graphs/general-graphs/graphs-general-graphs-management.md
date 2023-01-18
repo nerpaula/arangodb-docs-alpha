@@ -13,7 +13,6 @@ Lists all graph definitions stored in this database:
 
 List the graph names:
 
-    
  {{< tabs >}}
 {{% tab name="js" %}}
 ```js
@@ -33,8 +32,6 @@ release: stable
 ```
 {{% /tab %}}
 {{< /tabs >}}
- 
-    
     
 
 List the graph definitions:

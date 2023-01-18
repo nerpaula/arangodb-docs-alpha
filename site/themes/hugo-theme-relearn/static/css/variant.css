@@ -6,8 +6,8 @@
 
     --INTERNAL-MAIN-TEXT-color: var(--MAIN-TEXT-color, #666);
     --INTERNAL-MAIN-TITLES-TEXT-color: var(--MAIN-TITLES-TEXT-color, #4a4a4a);
-    --INTERNAL-MAIN-LINK-color: var(--MAIN-LINK-color, var(--SECONDARY-color, #88A049)); /* not --INTERNAL-SECONDARY-color */
-    --INTERNAL-MAIN-LINK-HOVER-color: var(--MAIN-LINK-HOVER-color, var(--INTERNAL-MAIN-LINK-color));
+    --INTERNAL-MAIN-LINK-color: var(--MAIN-LINK-color, var(--SECONDARY-color, #90ba6d)); /* not --INTERNAL-SECONDARY-color */
+    --INTERNAL-MAIN-LINK-HOVER-color: var(--MAIN-LINK-HOVER-color, var(--INTERNAL-MAIN-LINK-color, #90ba6d));
     --INTERNAL-MAIN-BG-color: var(--MAIN-BG-color, #ffffff);
 
     --INTERNAL-MAIN-TITLES-H1-color: var(--MAIN-TITLES-H1-color, var(--INTERNAL-MAIN-TEXT-color));
@@ -28,7 +28,7 @@
     --INTERNAL-MAIN-TITLES-H6-font: var(--MAIN-TITLES-H6-font, var(--INTERNAL-MAIN-TITLES-H5-font));
 
     --INTERNAL-CODE-BLOCK-color: var(--CODE-BLOCK-color, var(--MAIN-CODE-color, #000000));
-    --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, #f7fafc));
+    --INTERNAL-CODE-BLOCK-BG-color: var(--CODE-BLOCK-BG-color, var(--MAIN-CODE-BG-color, #2e3440));
     --INTERNAL-CODE-BLOCK-BORDER-color: var(--CODE-BLOCK-BORDER-color, var(--MAIN-CODE-BG-color, var(--INTERNAL-CODE-BLOCK-BG-color)));
 
     --INTERNAL-CODE-INLINE-color: var(--CODE-INLINE-color, #5e5e5e);
@@ -108,7 +108,7 @@ a:hover,
 .anchor:hover,
 #toc-menu:hover,
 #body a.highlight:hover:after {
-    color: var(--INTERNAL-MAIN-LINK-HOVER-color);
+    color: #90ba6d;
 }
 
 #sidebar {
@@ -134,8 +134,8 @@ a:hover,
 
 #sidebar  a:hover,
 #sidebar ul.topics li.active > label:after,
+#sidebar ul.topics li.parent > a,
 #sidebar ul.topics li.active > a {
-    background-color: var(--INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-BG-color);
     color: var(--INTERNAL-MENU-SECTION-ACTIVE-CATEGORY-color);
 }
 
@@ -204,6 +204,13 @@ pre {
     color: var(--INTERNAL-CODE-BLOCK-color);
 }
 
+
+.tab-item pre {
+    background-color: var(--INTERNAL-CODE-BLOCK-BG-color);
+    border-color: var(--INTERNAL-CODE-BLOCK-BORDER-color);
+    color: var(--INTERNAL-CODE-BLOCK-color);
+}
+
 div.featherlight .featherlight-content{
     background-color: var(--INTERNAL-MAIN-BG-color);
 }
@@ -217,7 +224,6 @@ div.featherlight .featherlight-content{
 }
 
 .copy-to-clipboard-button {
-    background-color: var(--INTERNAL-CODE-INLINE-BG-color);
     border-color: var(--INTERNAL-CODE-INLINE-BORDER-color);
     color: var(--INTERNAL-CODE-INLINE-color);
     font-family: var(--INTERNAL-CODE-font);

@@ -1,7 +1,7 @@
 ---
 fileID: graphs
-title: Graphs
+title: Overview
 weight: 615
 description: 
-layout: label
+layout: default
 ---

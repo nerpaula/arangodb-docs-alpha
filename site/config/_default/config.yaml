@@ -19,13 +19,9 @@ menu:
       weight: 10
     
 markup:
-  tableOfContents:
-    endLevel: 2
-    ordered: false
-    startLevel: 2
 
   highlight:
-    style: "emacs"
+    style: "nord"
 
   goldmark:
     renderer:
@@ -35,6 +31,7 @@ markup:
       attribute:
         block: true
         title: true
+
 
 outputs:
   home: ["HTML", "RSS", "JSON"]

@@ -109,11 +109,13 @@ ul, ol {
 
 a {
     font-weight: 500;
+    transition: 0.4s;
 }
 
 a, a:hover, a:focus {
     outline: none;
     text-decoration: none;
+    color: #90ba6d;
 }
 
 a, a:hover {
@@ -214,20 +216,12 @@ img {
 }
 
 .searchbox.default-animation {
-    opacity: 0;
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    color: white;
     font-size: 16px;
     transition: 0.4s;
     line-height: 40px;
-    width: 240px;
+    width: 22em;
     z-index: 9999;
-    height: 60px;
     padding: 0 6px;
-    margin: 24px 10px 0px 7px;
 }
 
 .searchbar-toggle {
@@ -314,7 +308,6 @@ label {
     cursor: pointer;
     display: inline;
     height: 1rem;
-    left: 0;
     margin-top: 0.2em;
     position: absolute;
     width: 1rem;
@@ -335,7 +328,6 @@ label {
 }
 
 #sidebar ul.topics li > a {
-    margin-left: -1rem;
     margin-right: -1rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -344,10 +336,6 @@ label {
 #sidebar ul.topics > li > label, #sidebar ul.topics > li a {
     font-size: 13px;
     line-height: 2rem;
-}
-
-#sidebar .collapsible-menu input.toggle + label + a + ul {
-    display: none;
 }
 
 #sidebar hr {
@@ -518,7 +506,7 @@ body h2, body h3 {
 }
 
 .default > h3 {
-    color: black;
+    color: #534949;
     font-size: 1.2rem;
     margin-top: 2rem;
 }
@@ -528,7 +516,7 @@ body h2 {
 }
 
 .default > h2 {
-    color: black;
+    color: #534949;
     font-size: 1.5rem;
     border-bottom: 1px solid #e2e8f0;
     padding: 0.4rem 0 0.5rem;
@@ -548,7 +536,7 @@ code, li code, p code {
     word-wrap: break-word;
     background-color: #f7f7f7;
     margin: 0;
-    padding: 0;
+    padding: 2px;
     word-break: break-word;
 }
 
@@ -561,6 +549,7 @@ code, li code, p code {
   filter: alpha(opacity=70);
   opacity: 0.7;
 }
+
 
 #sidenav li.dd-item.active > a {
     color: #577138;
@@ -708,9 +697,8 @@ div.box > .box-content > .box-text > p {
     border-radius: 0.25rem;
     background: #c7f6d9;
     color: #0d0c0c;
-    font-weight: bold;
     line-height: 21px;
-    font-size: .9em;
+    font-size: 1em;
 }
 
 .edit-page {
@@ -828,4 +816,8 @@ footer {
 
 #footer-trademark {
     color: #3d443b;
+}
+
+.fa-copy {
+    color: white;
 }

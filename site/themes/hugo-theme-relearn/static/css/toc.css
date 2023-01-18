@@ -54,3 +54,8 @@
     border-left: 2px solid #577138;
 }
 
+#TableOfContents .level-3 {
+    padding-left: 1em;
+    font-size: 13px;
+}
+

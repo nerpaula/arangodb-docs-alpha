@@ -1,6 +1,6 @@
 ---
 fileID: index
-title: What is ArangoDB?
+title: Overview
 weight: 5
 description: >-
   ArangoDB is a scalable database management system for graphs, with a broad range

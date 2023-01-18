@@ -4,23 +4,25 @@
 {{- with $context }}
 <div class="tab-panel">
   <div class="tab-nav">
+    <select
+      data-tab-group="{{ $groupid }}"
+      class="tab-nav-button"
+      >
   {{- range $idx, $tab := $tabs }}
     {{ if ne .name "" }}
-    <button
-      data-tab-item="{{ .name }}"
-      data-tab-group="{{ $groupid }}"
-      class="tab-nav-button {{ cond (eq $idx 0) "active" ""}}"
-      onclick="switchTab('{{ $groupid }}','{{ .name }}')"
-      ><span>{{ .name }}</span></button>
+    <option value="{{.name}}">
+      <span>{{ .name }}</span>
+    </option>
     {{ end }}
   {{- end }}
-  <span class="copy-to-clipboard-button" title="Copy to clipboard"><i class="fas fa-copy"></i></span>
+    </select>
   </div>
-  <div class="tab-content">
     {{- range $idx, $tab := $tabs }}
+    
+
     <div data-tab-item="{{ .name }}" data-tab-group="{{ $groupid }}" class="tab-item {{ cond (eq $idx 0) "active" ""}}">
+      <button class="copy-to-clipboard-button"><i class="fas fa-copy"></i></button>
 {{ .content | safeHTML }}
-    </div>
     {{- end }}
   </div>
 </div>

@@ -236,18 +236,24 @@
     font-weight: 900;
 }
 
-#sidebar .collapsible-menu input.toggle + label + a + ul {
+.submenu {
     display: none;
 }
 
-#sidebar .collapsible-menu input.toggle:checked + label + a + ul {
-	display: inline;
-}
 
 #sidebar ul li li {
     padding-left: 1rem;
 }
 
+li.parent > a {
+    font-weight: bold;
+}
+
 li.active > a {
     font-weight: bold;
+}
+
+.toggle.menu-label-entry {
+    width: 100%;
+    height: 2.3em;
 }

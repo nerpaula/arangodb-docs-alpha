@@ -1,18 +1,39 @@
 .copy-to-clipboard-button {
-    display: none;
+    float: right;
+    background: none;
+    opacity: 0;
+    left: 2.2em;
+    transition: 0.4s;
+    margin-top: 10px;
 }
+
+.tab-item:hover .copy-to-clipboard-button {
+    opacity: 1;
+}
+
 .copy-to-clipboard > .copy-to-clipboard-code {
     margin: 0;
     padding: 0;
     word-break: break-word;
     white-space: break-spaces;
+    color: rgb(216, 222, 233);
 }
+
+.tab-nav {
+    float: right;
+    right: 3em;
+    position: relative;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.tab-panel:hover .tab-nav {
+    opacity: 1;
+}
+
 .tab-nav-button {
-    background-color: rgba( 134, 134, 134, .166 );
-    border-color: rgba( 134, 134, 134, .333 );
-    border-radius: 4px 4px 0 0;
-    border-style: solid;
-    border-width: 1px;
+    border-color: #849193;
+    color: #d2e6e9;
     bottom: -1px;
 	-webkit-print-color-adjust: exact;
 	color-adjust: exact;
@@ -21,13 +42,18 @@
     font-size: .9rem;
     font-weight: 500;
     line-height: 1.42857143;
-    margin-left: 4px;
     padding: 6px 12px;
     position: relative;
     margin: 0;
+    transition: 0.4s;
+      /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  background: none;
 }
+
 .tab-nav-button:not(.active) {
-    border-bottom-color: rgba( 134, 134, 134, .1 );
     margin-top: 8px;
     padding-bottom: 2px !important;
     padding-top: 2px !important;
@@ -59,7 +85,6 @@
     display: block;
 }
 .tab-nav-button.active {
-    background: white;
     border-bottom: 0;
 }
 .tab-item pre{

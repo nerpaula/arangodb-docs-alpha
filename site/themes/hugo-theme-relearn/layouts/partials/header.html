@@ -25,7 +25,6 @@
 
     {{- partial "favicon.html" . }}
     {{- partial "stylesheet.html" . }}
-    {{- partial "custom-header.html" . }}
   </head>
 <body class="page-template page-template-splashpage page-template-splashpage-php page page-id-21510 page-parent splash-theme page-learn  wpb-js-composer js-comp-ver-6.8.0 vc_responsive">
     <div id="page-wrapper" class="page_content_splash" style="height: auto;">
@@ -47,11 +46,6 @@
                 </div>
               </div>
               <div class="container-right">
-                <div class="searchPanel">
-                  <button class="searchbar-toggle" onclick="showSearchBar()">
-                    <span class="icon-search3 zn-header-icon text-dark"><i class="fa fa-search" aria-hidden="true"></i></span>
-                  </button>
-                  {{ partial "search.html" . }}
                 </div>
             </header>
             {{- partial "menu.html" . }}
@@ -79,7 +73,19 @@
                   <a class="edit-page" aria-label="" href="https://github.com/arangodb/docs/edit/main/site/content/{{ .Path }}" target="_blank"><i class="fab fa-fw fa-github"></i>
                     Contribute</a>
                   </nav>
-               {{- partial "toc.html" . }}
+                  <div class="toc-container">
+                    <div class="toc">
+                        <div class="toc-content">
+                        <div class="toc-header"><p>On this page</p></div>
+                        <hr>
+                        <nav id="TableOfContents" >
+                            <nav id="TableOfContents">
+                            </nav>
+                        </nav>
+                        </div>
+                    </div>
+                </div>
+
                {{- define "breadcrumb" }}
                {{- $parent := .page.Parent }}
                {{- $ispublished := gt (int (len .page.Permalink)) 0 }}
