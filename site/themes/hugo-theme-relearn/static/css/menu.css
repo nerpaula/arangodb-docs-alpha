@@ -115,7 +115,7 @@
     font-size: 13px;
 }
 
-#sidebar ul.topics li.active > ul {
+#sidebar ul.topics li.active > ul > li > a {
     border-left: 1px solid;
 }
 
